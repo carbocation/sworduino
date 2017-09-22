@@ -12,5 +12,5 @@
 #define NUM_LEDS 300
 #define CIRCUMFERENCE 8
 #define ROTATION_IN_MS 50000
-#define FPS 60
+#define FPS 24
 #define DELAY (1000/FPS) // delay between each frame, in milliseconds
