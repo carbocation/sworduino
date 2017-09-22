@@ -10,13 +10,12 @@ void (*patterns[])() = {
 //  discoTwirl2,
 };
 
-int patternId = 0;
 int maxPatternId = sizeof( patterns ) / sizeof(patterns[0]);
 
 void setup() {
   randomSeed(analogRead(0));
   Serial.begin(57600);
-  LEDS.addLeds<LED_TYPE, LED_DT, COLOR_ORDER>(Global::leds, NUM_LEDS);
+  LEDS.addLeds<LED_TYPE, LED_DT, CLOCK_PIN, COLOR_ORDER>(Global::leds, NUM_LEDS);
   set_max_power_in_volts_and_milliamps(VOLTS, MAX_CURRENT_IN_MA);
   delay(100);
 }
@@ -34,6 +33,7 @@ void loop () {
     }
     FastLED.setBrightness(Global::max_bright);
     FastLED.show();
+    delay(DELAY);
   }
   if (maxPatternId > 1) {
     Global::firstTimeRunningThroughPattern = true;
